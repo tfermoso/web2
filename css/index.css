@@ -37,11 +37,15 @@ nav ul li a {
 
 }
 
-.seccion1,.seccion2,.seccion3,.seccion4 {
+.seccion1,
+.seccion2,
+.seccion3,
+.seccion4 {
     position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-direction: column;
 }
 
 .seccion1::before {
@@ -75,6 +79,7 @@ nav ul li a {
     z-index: -1;
     /* Coloca la imagen detrás del contenido */
 }
+
 .seccion3::before {
     content: "";
     position: absolute;
@@ -90,6 +95,7 @@ nav ul li a {
     z-index: -1;
     /* Coloca la imagen detrás del contenido */
 }
+
 .seccion4::before {
     content: "";
     position: absolute;
@@ -105,12 +111,29 @@ nav ul li a {
     z-index: -1;
     /* Coloca la imagen detrás del contenido */
 }
+
 /* Estilo para h3 dentro de .section1 */
-.seccion1 h3,.seccion2 h3,.seccion3 h3,.seccion4 h3 {
+.seccion1 h3,
+.seccion2 h3,
+.seccion3 h3,
+.seccion4 h3 {
     font-size: 100px;
     position: relative;
     z-index: 2;
     /* Asegurarse de que el texto se muestre sobre el fondo */
+}
+
+section p {
+    display: none;
+    width: 60%;
+}
+
+section h3:hover+p {
+    display: block;
+    font-size: 30px;
+    position: relative;
+    z-index: 2;
+    background-color: white;
 }
 
 
@@ -129,7 +152,11 @@ nav ul li a {
     nav ul {
         justify-content: center;
     }
-    .seccion1 h3,.seccion2 h3,.seccion3 h3,.seccion4 h3 {
+
+    .seccion1 h3,
+    .seccion2 h3,
+    .seccion3 h3,
+    .seccion4 h3 {
         font-size: 40px;
         position: relative;
         z-index: 2;
