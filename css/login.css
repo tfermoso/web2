@@ -32,6 +32,11 @@ button{
     background-color: greenyellow;
     
 }
+#msg{
+    font-size: 20px;
+    color: red;
+    display: none;
+}
 
 
 /* Media queries para pantallas pequeñas */
