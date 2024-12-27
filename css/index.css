@@ -4,6 +4,8 @@
 }
 */
 header {
+    margin: 0 auto;
+    width: 90%;
     height: 100px;
     display: flex;
     justify-content: space-between;
@@ -11,6 +13,8 @@ header {
 
 nav {
     height: 50px;
+    width: 90%;
+    margin:0 auto;
 }
 
 section {
@@ -18,7 +22,7 @@ section {
 }
 
 footer {
-    height: 100px;
+    height: 30px;
 }
 
 nav ul {
@@ -162,6 +166,10 @@ section h3:hover+p {
         position: relative;
         z-index: 2;
         /* Asegurarse de que el texto se muestre sobre el fondo */
+    }
+    section p {
+        display: none;
+        width: 95%;
     }
 
 }
