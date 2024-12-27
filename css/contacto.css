@@ -1,0 +1,55 @@
+
+
+form {
+    border: 1px solid blue;
+    border-radius: 10%;
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    align-items: center;
+    padding: 10px;
+    width: 50%;
+    margin: 0 auto;
+}
+textarea{
+    width: 80%;
+}
+#autorizacion{
+    width: 20px;
+}
+#autCheck{
+    display: flex;
+}
+#autCheck span{
+    font-size: 25px;
+    color: red;
+}
+
+form input {
+    font-size: 30px;
+    width: 80%;
+}
+button{
+    font-size: 30px;
+    margin:20px;
+    padding: 10px;
+    width: 82%;
+    background-color: greenyellow;
+    
+}
+#msg{
+    font-size: 20px;
+    color: red;
+    display: none;
+}
+
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    body>div {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+}
