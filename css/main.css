@@ -37,6 +37,7 @@ aside{
 }
 main{
     display: flex;
+    height: 80vh;
 }
 
 aside li{
@@ -50,10 +51,25 @@ aside i{
     margin-right: 20px;
     width: 30px;
 }
+footer p{
+    margin: 0;
+}
 
 /* Media queries para pantallas pequeñas */
 @media (max-width: 768px) {
     .menuUser li:nth-child(2){
         margin-top: 20px;
+    }
+    aside{
+        display: none;
+    }
+    .contenedorPrincipal{
+        width: 100%;
+    }
+    .asideMovil{
+        display: block;
+    }
+    main{
+        flex-direction: column;
     }
 }
