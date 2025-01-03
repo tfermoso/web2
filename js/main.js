@@ -16,3 +16,46 @@ menuMovil.onclick=function(){
         menu.style.display="block";
     }
 };
+
+var papeleras=document.getElementsByClassName("fa-trash");
+for (let index = 0; index < papeleras.length; index++) {
+    const element = papeleras[index];
+    element.onclick=function(e){
+        var row=this.closest("tr");
+        row.remove();
+        //e.target.parentElement.parentElement.remove();
+        //alert("borrando "+e.target.parentElement.parentElement.firstElementChild.innerText)
+    };   
+}
+
+document.getElementById("fecha").value=new Date().toISOString().substring(0,10)
+
+var formulario=document.getElementById("formIncidencias");
+formulario.onsubmit=function(e){
+    e.preventDefault();
+    var incidencia=document.getElementById("descripcion").value;
+    var fecha=document.getElementById("fecha").value;
+    var tabla=document.getElementById("tablaIncidencias");
+    var tr=document.createElement("tr");
+    var td1=document.createElement("td");
+    var td2=document.createElement("td");
+    var td3=document.createElement("td");
+    var td4=document.createElement("td");
+    var i=document.createElement("i");
+    i.classList.add("fa-solid");
+    i.classList.add("fa-trash");
+    i.onclick=function(e){
+        var row=this.closest("tr");
+        row.remove();
+    };
+    td1.innerText=99;
+    td2.innerText=fecha;
+    td3.innerText=incidencia;
+    td4.appendChild(i);
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(td4);
+    tabla.appendChild(tr);
+    formulario.reset();
+};
