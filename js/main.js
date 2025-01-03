@@ -48,8 +48,8 @@ formulario.onsubmit=function(e){
         var row=this.closest("tr");
         row.remove();
     };
-    td1.innerText=99;
-    td2.innerText=fecha;
+    td1.innerText=getNextId("tablaIncidencias");
+    td2.innerText=formatearFecha(fecha);
     td3.innerText=incidencia;
     td4.appendChild(i);
     tr.appendChild(td1);
@@ -59,3 +59,23 @@ formulario.onsubmit=function(e){
     tabla.appendChild(tr);
     formulario.reset();
 };
+
+function formatearFecha(fechaOrginal) {
+    var datosFecha=fechaOrginal.split("-");
+    return datosFecha[2]+"/"+datosFecha[1]+"/"+datosFecha[0];
+}
+
+function getNextId(idTabla) {
+    var tablaIncidencia = document.getElementById(idTabla);
+    var rows = tablaIncidencia.getElementsByTagName('tr');
+    var maxId = 0;
+    for (var i = 1; i < rows.length; i++) { // Start from 1 to skip the header row
+        var id = parseInt(rows[i].getElementsByTagName('td')[0].innerText);
+        if (id > maxId) {
+            maxId = id;
+        }
+    }
+    return maxId + 1;
+}
+
+console.log(getNextId("tablaIncidencias"));
