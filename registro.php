@@ -22,7 +22,7 @@
             <label for="nombre">Nombre</label>
             <input required type="text" name="nombre" id="nombre">
             <label for="apellidos">Apellidos</label>
-            <input required type="text" name="" id="apellidos">
+            <input required type="text" name="apellidos" id="apellidos">
             <label for="usuario">Email</label>
             <input required type="email" name="email" id="email">
             <label for="fecha">Fecha Nacimiento</label>
