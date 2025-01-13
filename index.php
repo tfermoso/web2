@@ -19,6 +19,8 @@
             <li><a href="login.html">Login</a></li>
         </ul>
     </nav>
+    
+  
     <section class="seccion1">
         <h3>Aprende HTML</h3>
         <p>HTML, que significa HyperText Markup Language, es el lenguaje estándar utilizado para crear y diseñar páginas web. Esencialmente, HTML proporciona la estructura básica de una página web, permitiendo a los desarrolladores definir elementos como encabezados, párrafos, enlaces, imágenes y otros tipos de contenido.</p>
