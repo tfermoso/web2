@@ -13,6 +13,17 @@ if (!$conexion) {
 }
 echo "Conexión exitosa";
 
+$sql="INSERT INTO usuarios (nombre, apellidos, email, fecha, password)
+ VALUES ('".$_POST["nombre"]."','".$_POST["apellidos"]."','".$_POST["email"]."','".$_POST["fecha"]."','".$_POST["password"]."')";
+
+if (mysqli_query($conexion, $sql)) {
+    echo "Nuevo registro creado";
+
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
+}
+
+
 
 // Cerrar la conexión
 mysqli_close($conexion);
