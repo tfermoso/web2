@@ -1,8 +1,28 @@
 <?php
  if(isset($_POST["nombre"])){
-    var_dump($_GET);
-    var_dump($_POST);
-    exit();
+    include("conexiondb.php");
+    try {
+        // Preparar y ejecutar la consulta SQL
+        $sql = "INSERT INTO usuarios (nombre, apellidos, email, fecha, password) 
+                VALUES (:nombre, :apellidos, :email, :fecha, :password)";
+        $stmt = $conexion->prepare($sql);
+        $stmt->bindParam(':nombre', $_POST["nombre"]);
+        $stmt->bindParam(':apellidos', $_POST["apellidos"]);
+        $stmt->bindParam(':email', $_POST["email"]);
+        $stmt->bindParam(':fecha', $_POST["fecha"]);
+        // Encriptar la contraseña antes de guardarla
+        $hashed_password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+        $stmt->bindParam(':password', $hashed_password);
+        //$stmt->bindParam(':password', $_POST["password"]);
+        $stmt->execute();
+    
+        echo "Registro insertado exitosamente";
+    
+        // Redirigir a la página de login   
+        header("Location: login.html");
+    } catch (PDOException $e) {
+        echo "Conexión fallida: " . $e->getMessage();
+    }
  }
 ?>
 <!DOCTYPE html>
