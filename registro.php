@@ -19,7 +19,7 @@
         echo "Registro insertado exitosamente";
     
         // Redirigir a la página de login   
-        header("Location: login.html");
+        header("Location: login.php");
     } catch (PDOException $e) {
         echo "Conexión fallida: " . $e->getMessage();
     }
@@ -38,7 +38,7 @@
 <body>
     <div>
         <a href="index.html"><img src="img/logo.svg" alt="Logo"></a>
-        <form class="register" action="procesar2.php" method="post">
+        <form class="register" action="" method="post">
             <label for="nombre">Nombre</label>
             <input required type="text" name="nombre" id="nombre">
             <label for="apellidos">Apellidos</label>

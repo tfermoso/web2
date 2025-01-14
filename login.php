@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,11 +14,11 @@
 <body>
     <div>
         <a href="index.html"><img src="img/logo.svg" alt="Logo"></a>
-        <form action="" method="get" id="formulario">
+        <form action="" method="post" id="formulario">
             <label for="usuario">Usuario</label>
-            <input type="text" name="" id="usuario">
+            <input type="email" name="email" id="usuario" placeholder="Introduce tu email">
             <label for="password">Password</label>
-            <input type="password" name="" id="password">
+            <input type="password" name="password" id="password">
             <button >Login</button>
         </form>
         <p>*Sino tienes usuario <a href="registro.php">crealo</a></p>
