@@ -18,7 +18,7 @@
 <body>
     <div>
         <a href="index.html"><img src="img/logo.svg" alt="Logo"></a>
-        <form class="register" action="procesar.php" method="post">
+        <form class="register" action="procesar2.php" method="post">
             <label for="nombre">Nombre</label>
             <input required type="text" name="nombre" id="nombre">
             <label for="apellidos">Apellidos</label>
