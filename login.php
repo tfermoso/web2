@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_POST["email"])) {
     include("conexiondb.php");
     $email = $_POST["email"];
@@ -13,7 +14,9 @@ if (isset($_POST["email"])) {
 
     if ($result && password_verify($password, $result['password'])) {
         // Redirigir a la página de inicio o dashboard
-       header("Location: main.html");
+        session_start();
+        $_SESSION['usuario'] = $email;
+        header("Location: main.php");
     } else {
         $error= "Email o contraseña incorrectos";
     }
