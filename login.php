@@ -12,11 +12,10 @@ if (isset($_POST["email"])) {
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($result && password_verify($password, $result['password'])) {
-        echo "Login exitoso";
         // Redirigir a la página de inicio o dashboard
-       // header("Location: dashboard.php");
+       header("Location: main.html");
     } else {
-        echo "Email o contraseña incorrectos";
+        $error= "Email o contraseña incorrectos";
     }
 
     // Cerrar la conexión
@@ -44,6 +43,9 @@ if (isset($_POST["email"])) {
             <button>Login</button>
         </form>
         <p>*Sino tienes usuario <a href="registro.php">crealo</a></p>
+        <?php if (isset($error)) { ?>
+            <p class="error"><?php echo $error; }?>
+        </p>
     </div>
 
     <script src="js/login.js"></script>
