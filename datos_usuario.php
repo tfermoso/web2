@@ -6,10 +6,12 @@ if (!isset($_SESSION["usuario"])) {
 
 include("conexiondb.php");
 
-if (isset($_POST["foto"])) {
+if (isset($_FILES["foto"])) {
+  
 //Guardar foto en el servidor
     $nombreFoto = $_FILES["foto"]["name"];
     $ruta = "./fotos/" . $nombreFoto;
+   
     move_uploaded_file($_FILES["foto"]["tmp_name"], $ruta);
     header("Location: main.php");
 } else {
