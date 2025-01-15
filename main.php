@@ -58,7 +58,7 @@ $result = $conexion->query($sql);
         <section class="contenedorPrincipal">
             <h3>Listado incidencias</h3>
             <div class="incidencias">
-                <form action="" id="formIncidencias">
+                <form action="nueva_incidencia.php" method="post" id="formIncidencias">
                     <label for="fecha">Fecha</label>
                     <input type="date" name="fecha" id="fecha" value="">
                     <label for="descripcion">Descripcion</label>
