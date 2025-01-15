@@ -15,11 +15,18 @@ $row=$stm->fetch(PDO::FETCH_ASSOC);
 if(! $row){
     header("Location: main.php");
 }
-
 include("./partials/cabecera.php");
 ?>
 <div class="contenedorPrincipal">
-
+<form action="" method="post">
+    <label for="id">Id Incidencia</label>
+    <input type="number" name="id" id="" readonly value="<?php echo $row['id'] ?>">
+    <label for="fecha">Fecha</label>
+    <input type="date" name="fecha" id="fecha" value="<?php echo $row['fecha'] ?>">
+    <label for="descripcion">Descripcion</label>   
+    <input type="text" name="descripcion" id="descripcion" value="<?php echo $row['descripcion'] ?>">
+    <input type="submit" value="Editar">
+</form>
 </div>
 <?php
 include("./partials/footer.php");   
