@@ -1,19 +1,26 @@
 <?php
 session_start();
-if(! isset($_SESSION["usuario"])){
+if (!isset($_SESSION["usuario"])) {
     header("Location: login.php");
 }
+include("conexiondb.php");
+$sql = "select * from incidencias";
+$result = $conexion->query($sql);
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>main</title>
-<link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <header>
         <img src="img/logo.svg" alt="">
@@ -49,73 +56,44 @@ if(! isset($_SESSION["usuario"])){
             </ul>
         </div>
         <section class="contenedorPrincipal">
-           <h3>Listado incidencias</h3>
-           <div class="incidencias">
+            <h3>Listado incidencias</h3>
+            <div class="incidencias">
                 <form action="" id="formIncidencias">
-                     <label for="fecha">Fecha</label>
-                     <input type="date" name="fecha" id="fecha" value="">
-                     <label for="descripcion">Descripcion</label>
-                     <input required type="text" name="descripcion" id="descripcion">
-                     <button>Enviar</button>
+                    <label for="fecha">Fecha</label>
+                    <input type="date" name="fecha" id="fecha" value="">
+                    <label for="descripcion">Descripcion</label>
+                    <input required type="text" name="descripcion" id="descripcion">
+                    <button>Enviar</button>
                 </form>
-           </div>
-           <div class="lista">
-            <table id="tablaIncidencias">
-                <thead>
-                    <th>Id</th>
-                    <th>Fecha</th>
-                    <th>Descripcion</th>
-                    <th>Operaciones</th>
-                </thead>
-                <tbody id="tbodyIncidencias">
-                    <tr>
-                        <td>1</td>
-                        <td>12/12/2021</td>
-                        <td>Problema con el servidor</td>
-                        <td>
-                            <i class="fa-solid fa-trash"></i>
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>12/12/2021</td>
-                        <td>Problema con el servidor</td>
-                        <td>
-                            <i class="fa-solid fa-trash"></i>
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>12/12/2021</td>
-                        <td>Problema con el servidor</td>
-                        <td>
-                            <i class="fa-solid fa-trash"></i>
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>12/12/2021</td>
-                        <td>Problema con el servidor</td>
-                        <td>
-                            <i class="fa-solid fa-trash"></i>
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>12/12/2021</td>
-                        <td>Problema con el servidor</td>
-                        <td>
-                            <i class="fa-solid fa-trash"></i>
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </td>
-                    </tr>
+            </div>
+            <div class="lista">
+                <table id="tablaIncidencias">
+                    <thead>
+                        <th>Id</th>
+                        <th>Fecha</th>
+                        <th>Descripcion</th>
+                        <th>Operaciones</th>
+                    </thead>
+                    <tbody id="tbodyIncidencias">
+                        <?php
+                        while ($row = $result->fetch()) {
+                            echo "<tr>
+                            <td>".$row['id']."</td>
+                            <td>".$row['fecha']."</td>
+                            <td>".$row['descripcion']."</td>
+                            <td>
+                                <i class='fa-solid fa-trash'></i>
+                                <i class='fa-solid fa-pen-to-square'></i>
+                            </td>
+                            </tr>";
 
-            </table>
-           </div>
+                        }
+                        ?>
+                        
+
+
+                </table>
+            </div>
         </section>
     </main>
     <footer>
@@ -123,4 +101,5 @@ if(! isset($_SESSION["usuario"])){
     </footer>
     <script src="js/main.js"></script>
 </body>
+
 </html>
