@@ -83,7 +83,7 @@ $result = $conexion->query($sql);
                             <td>".$row['descripcion']."</td>
                             <td>
                                 <a href='borrar_incidencia.php?idincidencia=".$row['id']."'><i class='fa-solid fa-trash'></i></a>
-                                <i class='fa-solid fa-pen-to-square'></i>
+                                <a href='editar_incidencia.php?idincidencia=".$row['id']."'<i class='fa-solid fa-pen-to-square'></i></a>
                             </td>
                             </tr>";
 
