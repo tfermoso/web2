@@ -10,9 +10,20 @@ if (isset($_FILES["foto"])) {
   
 //Guardar foto en el servidor
     $nombreFoto = $_FILES["foto"]["name"];
-    $ruta = "./fotos/" . $nombreFoto;
-   
-    move_uploaded_file($_FILES["foto"]["tmp_name"], $ruta);
+    $ruta = "./fotos/" . $nombreFoto;  
+    if(move_uploaded_file($_FILES["foto"]["tmp_name"], $ruta)){
+        $sql="update usuarios set nombre=:nombre, apellidos=:apellidos, email=:email, foto=:foto where id=:id";
+        $stm=$conexion->prepare($sql);
+        $stm->bindParam(":nombre", $_POST["nombre"]);
+        $stm->bindParam(":apellidos", $_POST["apellidos"]);
+        $stm->bindParam(":email", $_POST["email"]);
+        $stm->bindParam(":foto", $ruta);
+        $stm->bindParam(":id", $_POST["id"]);
+        $stm->execute();
+        header("Location: main.php");
+
+    }
+    
     header("Location: main.php");
 } else {
 
